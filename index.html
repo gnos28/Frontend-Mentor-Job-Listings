@@ -10,7 +10,11 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
@@ -25,27 +29,42 @@
       <form>
         <div autofocus contenteditable="true">
           <div class="input-container">
-            <div class="input-item" contenteditable="false">
-              <span>Julien</span>
-              <div class="input-item-unselect">x</div>
-            </div>
-            <div class="input-item" contenteditable="false">
-              <span>Léa</span>
-              <div class="input-item-unselect">x</div>
-            </div>
-            <div class="input-item" contenteditable="false">
-              <span>Lucas</span>
-              <div class="input-item-unselect">x</div>
-            </div>
-            <div>
+            <div contenteditable="false" class="input-input-container">
               <input list="inputDropDown" class="input-input" type="text" />
-              <datalist id="inputDropDown" class="inputDropDown"> </datalist>
+              <div list="inputDropDown" class="inputDropDown"></div>
             </div>
           </div>
 
-          <div class="input-clear"><span>Clear</span></div>
+          <div class="input-clear" contenteditable="false">
+            <span>Clear</span>
+          </div>
         </div>
       </form>
+      <div class="content">
+        <div class="card">
+          <div class="icon">
+            <img src="./images/photosnap.svg" alt="logo" />
+          </div>
+          <div class="card-header">
+            <h2>Photosnap</h2>
+            <span class="hint new">NEW !</span>
+            <span class="hint featured">FEATURED</span>
+          </div>
+          <div class="position">Senior Frontend Developer</div>
+          <div class="infos">
+            <span>1d ago</span>
+            <span>Full time</span>
+            <span>USA only</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Frontend</span>
+            <span class="tag">Senior</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Javascript</span>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

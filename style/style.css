@@ -1,17 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
 
-:root{
-  --main-color:#5da5a4;
-  --secondary-color:#edf4f4;
+:root {
+  --main-color: #5da5a4;
+  --secondary-color: #edf4f4;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/********************* CUSTOM DATA LIST START *********************/
+
+/* * {
+  scrollbar-width: thin;
+    scrollbar-color: #BBB #EEE;
+} */
+
+/* *::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #C0C3C6;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #C0C3C6;
+} */
+
+table {
+  width: 400px;
+  margin: 0 auto;
+  background: #eee;
+  font-family: Arial;
+  padding: 10px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px -5px #000;
+  --border: 1px solid #abc;
+}
+table td {
+  padding-bottom: 10px;
+}
+table h4 {
+  text-align: center;
+  color: #567;
+  border: 1px solid #567;
+  border-radius: 3px;
+  padding: 15px 0;
+}
+input {
+  /* padding: 10px; */
+  font-size: 1em;
+  width: calc(100% - 20px);
+  border: var(--border);
+  border-radius: 3px;
+}
+input[list]:focus {
+  outline: none;
+}
+input[list] + div[list] {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-height: 164px;
+  overflow-y: auto;
+  max-width: 330px;
+  background: #fff;
+  border: var(--border);
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 3px 3px -3px #333;
+  z-index: 100;
+}
+input[list] + div[list] span {
+  display: block;
+  padding: 7px 5px 7px 20px;
+  color: var(--main-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+input[list] + div[list] span:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+input[list] + div[list] span:hover {
+  background: rgba(100, 120, 140, 0.2);
+}
+
+table .instructions {
+  font-size: 0.9em;
+  color: #900;
+}
+table .instructions b {
+  color: #123;
+}
+
+/********************* CUSTOM DATA LIST END *********************/
 
 .background-banner {
   height: 120px;
@@ -27,7 +116,7 @@ body{
 
 .foreground {
   position: absolute;
-  top:100px;
+  top: 100px;
   width: 100%;
 }
 
@@ -38,11 +127,13 @@ body{
 }
 
 .foreground > form > div {
-  width: calc(100vw - 40px);
+  /* width: calc(100vw - 40px); */
+  margin:0 20px;
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0px 9px 15px 3px rgba(0,0,0,0.15);
+  box-shadow: 0px 9px 15px 3px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,30 +144,49 @@ body{
   outline: none;
 }
 
-.input-container
-{
+@keyframes errorAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+form > div.errorAnimation {
+  animation: errorAnimation 0.2s;
+  animation-iteration-count: 2;
+}
+
+.input-container {
   display: flex;
-  gap:8px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.input-item{
+.input-item {
   position: relative;
   display: flex;
-  user-select:none;
+  user-select: none;
 }
 
-.input-item > span{
+.input-item > span {
   font-weight: 600;
   padding: 5px 8px;
   color: var(--main-color);
   background-color: var(--secondary-color);
   border-radius: 4px 0px 0px 4px;
-  user-select:none;
+  user-select: none;
 }
 
-.input-item-unselect{
-  font-family: 'Nunito', sans-serif;
+.input-item-unselect {
+  font-family: "Nunito", sans-serif;
   height: 100%;
   width: 25px;
   background-color: var(--main-color);
@@ -88,11 +198,11 @@ body{
   cursor: pointer;
 }
 
-.input-item-unselect:hover{
+.input-item-unselect:hover {
   background-color: black;
 }
 
-.input-input{
+.input-input {
   border: none;
   font-weight: bold;
   font-size: 1.2rem;
@@ -106,10 +216,10 @@ body{
 .input-clear {
   display: flex;
   height: 2rem;
-  
+
   justify-content: space-between;
   align-items: center;
-  color:#828B8A;
+  color: #828b8a;
   user-select: none;
   cursor: pointer;
   font-size: 1rem;
@@ -117,10 +227,116 @@ body{
 }
 
 .input-clear:hover {
-  color : var(--main-color);
+  color: var(--main-color);
   text-decoration: underline;
 }
 
 .inputDropDown {
   background-color: white;
+}
+
+.content {
+  padding: 20px;
+  background-color: #f0fafb;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0px 9px 15px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  position: relative;
+  padding: 35px 20px 15px;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: white 5px solid;
+}
+
+.card:hover {
+  border-left: var(--main-color) 5px solid;
+}
+
+.card:first-child {
+  margin-top: 40px;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon > img {
+  position: absolute;
+  width: 50px;
+  top: -60px;
+}
+
+.card-header {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.card-header > h2 {
+  color: var(--main-color);
+  font-size: 0.9rem;
+}
+
+.hint {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 16px;
+}
+
+.new {
+  background-color: var(--main-color);
+}
+
+.featured {
+  background-color: #000;
+}
+
+.position {
+  color: black;
+  font-weight: bold;
+}
+
+.infos {
+  color: #888;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #888;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 20px;
+}
+
+.infos > span {
+  position: relative;
+}
+
+.infos > span:not(:first-child):before {
+  font-family: "Times New Roman", Times, serif;
+  content: ".";
+  position: absolute;
+  left: -15px;
+  bottom: -3px;
+  font-size: 3rem;
+}
+
+.tags {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 6px;
+  border-radius: 4px;
 }
