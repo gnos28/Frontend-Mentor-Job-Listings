@@ -126,52 +126,67 @@ const updateRenderedList = () => {
     });
     return toKeep;
   });
+
+  console.log(renderedList);
 };
 
 const addInput = (input) => {
   // rajouter un check pour vérifier qu'on ajoute pas un élement déjà présent dans la liste
+  let inDropDownItems = false;
+  dropDownItems.forEach((item) => {
+    if (item.toLowerCase() === input.toLowerCase()) {
+      input = item;
+      inDropDownItems = true;
+    }
+  });
 
-  const inputInput = document.querySelector(".input-input");
-  const inputInputContainer = document.querySelector(".input-input-container");
+  if (inDropDownItems) {
+    const inputInput = document.querySelector(".input-input");
+    const inputInputContainer = document.querySelector(
+      ".input-input-container"
+    );
 
-  const inputContainer = document.querySelector(".input-container");
-  const inputItem = document.createElement("div");
-  inputItem.classList.add("input-item");
-  inputItem.contentEditable = false;
-  inputItem.value = input;
-  const span = document.createElement("span");
-  span.innerText = input;
-  const unselectItem = document.createElement("div");
-  unselectItem.classList.add("input-item-unselect");
-  unselectItem.innerText = "x";
-  unselectItem.addEventListener("click", handleUnselect);
+    const inputContainer = document.querySelector(".input-container");
+    const inputItem = document.createElement("div");
+    inputItem.classList.add("input-item");
+    inputItem.contentEditable = false;
+    inputItem.value = input;
+    const span = document.createElement("span");
+    span.innerText = input;
+    const unselectItem = document.createElement("div");
+    unselectItem.classList.add("input-item-unselect");
+    unselectItem.innerText = "x";
+    unselectItem.addEventListener("click", handleUnselect);
 
-  inputItem.appendChild(span);
-  inputItem.appendChild(unselectItem);
-  inputContainer.insertBefore(inputItem, inputInputContainer);
+    inputItem.appendChild(span);
+    inputItem.appendChild(unselectItem);
+    inputContainer.insertBefore(inputItem, inputInputContainer);
 
-  inputInput.value = "";
+    inputInput.value = "";
 
-  filterList.push(input);
+    filterList.push(input);
 
-  updateRenderedList();
+    updateRenderedList();
 
-  renderList(renderedList);
+    renderList(renderedList);
+  }
 };
 
 const formSubmit = (e) => {
   e.preventDefault();
   addInput(e.target[0].value);
+
+  console.log("form submit");
 };
 
 const errorAnimation = () => {
   console.log("errorAnimation");
 
-  const formDiv = document.querySelector("form > div")
-  formDiv.classList.add("errorAnimation")
+  const formDiv = document.querySelector("form > div");
+  formDiv.classList.add("errorAnimation");
   window.setTimeout(() => {
-    formDiv.classList.remove("errorAnimation")
-  }, 800)
+    formDiv.classList.remove("errorAnimation");
+  }, 800);
 };
 
 const updateDropDownItems = (list) => {
@@ -295,6 +310,10 @@ $(document).on("keydown", "input[list]", function (event) {
         if (item.children[0].textContent === deleted) item.remove();
       });
     }
+
+    updateRenderedList();
+
+    renderList(renderedList);
 
     $(this).focus();
   }
