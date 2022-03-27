@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Frontend Mentor | Job Listings</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="background-banner"></div>
+      <div class="background-empty"></div>
+    </div>
+    <div class="foreground">
+      <form>
+        <div autofocus contenteditable="true">
+          <div class="input-container">
+            <div class="input-item" contenteditable="false">
+              <span>Julien</span>
+              <div class="input-item-unselect">x</div>
+            </div>
+            <div class="input-item" contenteditable="false">
+              <span>Léa</span>
+              <div class="input-item-unselect">x</div>
+            </div>
+            <div class="input-item" contenteditable="false">
+              <span>Lucas</span>
+              <div class="input-item-unselect">x</div>
+            </div>
+            <div>
+              <input list="inputDropDown" class="input-input" type="text" />
+              <datalist id="inputDropDown" class="inputDropDown"> </datalist>
+            </div>
+          </div>
+
+          <div class="input-clear"><span>Clear</span></div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

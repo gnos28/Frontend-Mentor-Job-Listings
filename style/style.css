@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+:root{
+  --main-color:#5da5a4;
+  --secondary-color:#edf4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.background-banner {
+  height: 120px;
+  background-color: var(--main-color);
+  background-image: url("../images/bg-header-mobile.svg");
+  background-size: contain;
+}
+
+.background-empty {
+  background-color: #f0fafb;
+  min-height: calc(100vh - 120px);
+}
+
+.foreground {
+  position: absolute;
+  top:100px;
+  width: 100%;
+}
+
+.foreground > form {
+  display: flex;
+  justify-content: space-around;
+  cursor: default;
+}
+
+.foreground > form > div {
+  width: calc(100vw - 40px);
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 9px 15px 3px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.foreground > form > div:focus {
+  outline: none;
+}
+
+.input-container
+{
+  display: flex;
+  gap:8px;
+  flex-wrap: wrap;
+}
+
+.input-item{
+  position: relative;
+  display: flex;
+  user-select:none;
+}
+
+.input-item > span{
+  font-weight: 600;
+  padding: 5px 8px;
+  color: var(--main-color);
+  background-color: var(--secondary-color);
+  border-radius: 4px 0px 0px 4px;
+  user-select:none;
+}
+
+.input-item-unselect{
+  font-family: 'Nunito', sans-serif;
+  height: 100%;
+  width: 25px;
+  background-color: var(--main-color);
+  border-radius: 0px 4px 4px 0px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.input-item-unselect:hover{
+  background-color: black;
+}
+
+.input-input{
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 200px;
+}
+
+.input-input:focus {
+  outline: none;
+}
+
+.input-clear {
+  display: flex;
+  height: 2rem;
+  
+  justify-content: space-between;
+  align-items: center;
+  color:#828B8A;
+  user-select: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.input-clear:hover {
+  color : var(--main-color);
+  text-decoration: underline;
+}
+
+.inputDropDown {
+  background-color: white;
+}
